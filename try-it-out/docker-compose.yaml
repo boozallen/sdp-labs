@@ -3,21 +3,15 @@ services:
   jenkins:
     privileged: true
     user: root
-    container_name: jenkins
+    container_name: sdp-jenkins
     image: jenkins/jenkins:2.138.3
     ports:
       - '8080:8080'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker:/usr/local/bin/docker
-  app:
-   build:
-     context: ./app
-     dockerfile: Dockerfile
-   ports:
-   - 8081:8080
   sonarqube:
-    container_name: sonarqube
+    container_name: sdp-sonarqube
     image: sonarqube:latest
     build:
       context: ./docker/sonarqube
@@ -26,7 +20,7 @@ services:
     - 9000:9000
     - 9092:9092
   registry:
-    container_name: registry
+    container_name: sdp-registry
     image: registry:2
     ports:
     - 5000:5000

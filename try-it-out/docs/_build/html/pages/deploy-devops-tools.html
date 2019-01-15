@@ -157,9 +157,20 @@ git clone https://github.com/boozallen/sdp-labs.git
 </div>
 <p><strong>If you haven’t already</strong>, use one of the above commands to clone the repository to your computer.</p>
 <p>In your terminal, navigate to the inside of the <strong>sdp-labs</strong> directory that you just cloned from GitHub.</p>
-<p>Run the following command in your terminal from the top-level directory of the <strong>sdp-labs</strong> directory to deploy the Docker containers using a provided docker-compose.yaml file.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>docker-compose -f /try-it-out/docker-compose.yaml up -d
+<p>Run the following command in your terminal from the top-level directory of the <strong>sdp-labs</strong> directory to deploy the Docker containers using a <a class="reference external" href="https://github.com/boozallen/sdp-labs/blob/master/try-it-out/docker-compose.yaml">provided docker-compose.yaml file</a>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>docker-compose -f ./try-it-out/docker-compose.yaml up -d
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For some more information about docker-compose files, visit <a class="reference external" href="https://docs.docker.com/compose/compose-file/">this page</a>.</p>
+</div>
+<p>The above command will create and run the following Jenkins containers: Jenkins, a Docker registry, and SonarQube. To verify this, you can run <code class="docutils literal"><span class="pre">docker</span> <span class="pre">ps</span></code> in your terminal.</p>
+<p>The response should show something similar to the following screenshot.</p>
+<img alt="../_images/docker_ps_command.png" src="../_images/docker_ps_command.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you looked at the <code class="docutils literal"><span class="pre">docker-compose.yaml</span></code> file we provided, you may have noticed that sonar-scanner isn’t a running container. This is a Docker image that we will need later, even though it’s intentionally not running.</p>
 </div>
 </div>
 

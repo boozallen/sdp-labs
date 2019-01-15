@@ -20,8 +20,23 @@ To begin, clone our SDP-Labs_ GitHub repository, which includes all of the files
 
 In your terminal, navigate to the inside of the **sdp-labs** directory that you just cloned from GitHub.
 
-Run the following command in your terminal from the top-level directory of the **sdp-labs** directory to deploy the Docker containers using a provided docker-compose.yaml file.
+Run the following command in your terminal from the top-level directory of the **sdp-labs** directory to deploy the Docker containers using a `provided docker-compose.yaml file`_.
+
+.. _provided docker-compose.yaml file: https://github.com/boozallen/sdp-labs/blob/master/try-it-out/docker-compose.yaml
 
 .. code-block:: bash
 
-   docker-compose -f /try-it-out/docker-compose.yaml up -d
+   docker-compose -f ./try-it-out/docker-compose.yaml up -d
+
+.. note:: For some more information about docker-compose files, visit `this page`_.
+
+.. _this page: https://docs.docker.com/compose/compose-file/
+
+The above command will create and run the following Jenkins containers: Jenkins, a Docker registry, and SonarQube. To verify this, you can run ``docker ps`` in your terminal. 
+
+The response should show something similar to the following screenshot.
+
+.. image:: ../images/deploy-devops-tools/docker_ps_command.png
+
+.. note:: If you looked at the ``docker-compose.yaml`` file we provided, you may have noticed that sonar-scanner isn't a running container. This is a Docker image that we will need later, even though it's intentionally not running.
+
