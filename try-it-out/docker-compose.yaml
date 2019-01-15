@@ -1,0 +1,40 @@
+version: '3'
+services:
+  jenkins:
+    privileged: true
+    user: root
+    container_name: jenkins
+    image: jenkins/jenkins:2.138.3
+    ports:
+      - '8080:8080'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
+  app:
+   build:
+     context: ./app
+     dockerfile: Dockerfile
+   ports:
+   - 8081:8080
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:latest
+    build:
+      context: ./docker/sonarqube
+      dockerfile: Dockerfile
+    ports:
+    - 9000:9000
+    - 9092:9092
+  registry:
+    container_name: registry
+    image: registry:2
+    ports:
+    - 5000:5000
+  sonar-scanner:
+    container_name: sonar-scanner
+    image: sdp/sonar-scanner:latest
+    build:
+      context: ./docker/sonar-scanner
+      dockerfile: Dockerfile
+    depends_on:
+    - sonarqube
