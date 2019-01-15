@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SDP Labs &mdash; SDP Labs  documentation</title>
+  <title>Try It Out &mdash; SDP Labs  documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installing the Plugin" href="pages/installation.html" /> 
+    <link rel="next" title="Deploy The Devops Tools" href="pages/deploy-devops-tools.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -80,7 +80,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="pages/installation.html">Installing the Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/deploy-devops-tools.html">Deploy The Devops Tools</a></li>
 </ul>
 
             
@@ -126,7 +126,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>SDP Labs</li>
+      <li>Try It Out</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -145,16 +145,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sdp-labs">
-<span id="id1"></span><h1>SDP Labs<a class="headerlink" href="#sdp-labs" title="Permalink to this headline">¶</a></h1>
-<p>Test</p>
-<p>The Jenkins Templating Engine (JTE) is a plugin developed by Booz Allen Hamilton enabling
-pipeline templating and governance. JTE  allows you to consolidate
-pipelines into shareable workflows that define the business logic of
-your software delivery processes while allowing for optimal pipeline code reuse by
-pulling out tool specific implementations into library modules.</p>
-<div class="section" id="how-does-it-work">
-<h2>How Does It Work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="try-it-out">
+<span id="id1"></span><h1>Try It Out<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the Try It Out page for the Solutions Delivery Platform!</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this guide is to help you set up the Solutions Delivery Platform on your own local computer so that you can try it out and see what magic it can do!</p>
+<p>It will walk you though the steps of setting up core DevOps tools using Docker containers, creating a simple pipeline for some sample Spring Boot API code,
+and utilizing some of the key features of the Jenkins Templating Engine, such as <span class="xref std std-ref">Organizational Governance</span>.</p>
+<p>The pipeline itself will be able to build a Docker image from some Spring Boot API code and perform some code analysis on it as well using SonarQube.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">A text editor</p>
+</li>
+<li><p class="first">You have <a class="reference external" href="https://gradle.org/install/#manually">Gradle version 4.2.10</a> or above installed on your machine</p>
+</li>
+<li><p class="first">You have <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a> installed on your machine</p>
+</li>
+<li><p class="first">You have <a class="reference external" href="https://docs.docker.com/install/">Docker</a> installed on your machine</p>
+<blockquote>
+<div><ul class="simple">
+<li>For your Docker resources, you will need at least 2CPUs, 3.0GIB Memory, and 1.0GIB Swap</li>
+<li>Follow the sections under the Advanced section on these sites depending on your operating machine to change the resources you allocate to Docker: <a class="reference external" href="https://docs.docker.com/docker-for-windows/#advanced">https://docs.docker.com/docker-for-windows/#advanced</a> or <a class="reference external" href="https://docs.docker.com/docker-for-mac/#preferences-menu">https://docs.docker.com/docker-for-mac/#preferences-menu</a></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="let-s-get-started">
+<h2>Let’s Get Started<a class="headerlink" href="#let-s-get-started" title="Permalink to this headline">¶</a></h2>
+<p>Without further ado, let’s get started!</p>
+<p>Use the <code class="docutils literal"><span class="pre">previous</span></code> and <code class="docutils literal"><span class="pre">next</span></code> buttons to navigate through this guide.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -168,7 +193,7 @@ pulling out tool specific implementations into library modules.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pages/installation.html" class="btn btn-neutral float-right" title="Installing the Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pages/deploy-devops-tools.html" class="btn btn-neutral float-right" title="Deploy The Devops Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
