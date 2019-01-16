@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configure Jenkins" href="configure-jenkins.html" />
     <link rel="prev" title="Try It Out" href="../index.html" /> 
 
   
@@ -81,6 +82,7 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Deploy The Devops Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-jenkins.html">Configure Jenkins</a></li>
 </ul>
 
             
@@ -156,14 +158,18 @@ git clone https://github.com/boozallen/sdp-labs.git
 </pre></div>
 </div>
 <p><strong>If you haven’t already</strong>, use one of the above commands to clone the repository to your computer.</p>
-<p>In your terminal, navigate to the inside of the <strong>sdp-labs</strong> directory that you just cloned from GitHub.</p>
-<p>Run the following command in your terminal from the top-level directory of the <strong>sdp-labs</strong> directory to deploy the Docker containers using a <a class="reference external" href="https://github.com/boozallen/sdp-labs/blob/master/try-it-out/docker-compose.yaml">provided docker-compose.yaml file</a>.</p>
+<p>In your terminal, navigate to the inside of the <code class="docutils literal"><span class="pre">sdp-labs</span></code> directory that you just cloned from GitHub.</p>
+<p>Run the following command in your terminal from the top-level directory of the <code class="docutils literal"><span class="pre">sdp-labs</span></code> directory to deploy the Docker containers using the <a class="reference external" href="https://github.com/boozallen/sdp-labs/blob/master/try-it-out/docker-compose.yaml">provided docker-compose.yaml file</a> within the <code class="docutils literal"><span class="pre">try-it-out</span></code> directory.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>docker-compose -f ./try-it-out/docker-compose.yaml up -d
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">For some more information about docker-compose files, visit <a class="reference external" href="https://docs.docker.com/compose/compose-file/">this page</a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">docker-compose</span></code> command run above may not work on a company’s WIFI depending on its firewall settings, so you may need to run it on a private network or where firewall rules are more lax.</p>
 </div>
 <p>The above command will create and run the following Jenkins containers: Jenkins, a Docker registry, and SonarQube. To verify this, you can run <code class="docutils literal"><span class="pre">docker</span> <span class="pre">ps</span></code> in your terminal.</p>
 <p>The response should show something similar to the following screenshot.</p>
@@ -181,6 +187,8 @@ git clone https://github.com/boozallen/sdp-labs.git
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configure-jenkins.html" class="btn btn-neutral float-right" title="Configure Jenkins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Try It Out" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

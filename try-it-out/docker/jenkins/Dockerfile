@@ -1,35 +1,30 @@
-FROM jenkins/jenkins:2.73.2
+# Copyright © 2018 Booz Allen Hamilton. All Rights Reserved.
+# This software package is licensed under the Booz Allen Public License. The license can be found in the License file or at http://boozallen.github.io/licenses/bapl
 
-# install docker, docker-compose, docker-machine
-# see: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-# see: https://docs.docker.com/engine/installation/linux/linux-postinstall/
-# see: https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+FROM jenkins/jenkins:2.150.1
+
+ENV JAVA_OPTS "-Djenkins.install.runSetupWizard=false"
+
+EXPOSE 8080
+EXPOSE 50000
 
 USER root
 
-# prerequisites for docker
-RUN apt-get update \
-    && apt-get -y install \
-        apt-transport-https \
-        ca-certificates \
-        curl \
-        software-properties-common
+# copy in custom common-workflow plugin
+COPY resources/plugins/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
 
-# docker repos
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
-    && echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" >> /etc/apt/sources.list.d/additional-repositories.list \
-    && echo "deb http://ftp-stud.hs-esslingen.de/ubuntu xenial main restricted universe multiverse" >> /etc/apt/sources.list.d/official-package-repositories.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 437D05B5 \
-    && apt-get update
+# install plugins 
+COPY resources/plugins/plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
-# docker
-RUN apt-get -y install docker-ce
+# copy in entry point scripts
+COPY resources/scripts/jenkins.sh /usr/local/bin/jenkins.sh
+RUN chmod 777 /usr/local/bin/jenkins.sh
 
-# docker-compose
-RUN curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
-    && chmod +x /usr/local/bin/docker-compose
+# copy in casc plugin 
+ENV CASC_JENKINS_CONFIG /usr/share/jenkins/ref/casc_configs/jenkins.yaml
+COPY resources/jenkins.yaml /usr/share/jenkins/ref/casc_configs/jenkins.yaml
 
-# give jenkins docker rights
-RUN usermod -aG docker jenkins
-
-USER jenkins
+# copy in groovy init scripts 
+ENV INIT_GROOVY_DIR /usr/share/jenkins/ref/init_groovy
+COPY resources/scripts/init_groovy /usr/share/jenkins/ref/init_groovy

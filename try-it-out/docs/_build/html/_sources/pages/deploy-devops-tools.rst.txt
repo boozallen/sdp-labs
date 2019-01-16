@@ -18,9 +18,9 @@ To begin, clone our SDP-Labs_ GitHub repository, which includes all of the files
 
 **If you haven't already**, use one of the above commands to clone the repository to your computer. 
 
-In your terminal, navigate to the inside of the **sdp-labs** directory that you just cloned from GitHub.
+In your terminal, navigate to the inside of the ``sdp-labs`` directory that you just cloned from GitHub.
 
-Run the following command in your terminal from the top-level directory of the **sdp-labs** directory to deploy the Docker containers using a `provided docker-compose.yaml file`_.
+Run the following command in your terminal from the top-level directory of the ``sdp-labs`` directory to deploy the Docker containers using the `provided docker-compose.yaml file`_ within the ``try-it-out`` directory.
 
 .. _provided docker-compose.yaml file: https://github.com/boozallen/sdp-labs/blob/master/try-it-out/docker-compose.yaml
 
@@ -29,6 +29,8 @@ Run the following command in your terminal from the top-level directory of the *
    docker-compose -f ./try-it-out/docker-compose.yaml up -d
 
 .. note:: For some more information about docker-compose files, visit `this page`_.
+
+.. note:: The ``docker-compose`` command run above may not work on a company's WIFI depending on its firewall settings, so you may need to run it on a private network or where firewall rules are more lax. 
 
 .. _this page: https://docs.docker.com/compose/compose-file/
 

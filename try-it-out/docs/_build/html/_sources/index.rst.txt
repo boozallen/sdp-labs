@@ -25,7 +25,7 @@ Prerequisites
     * You have `Git`_ installed on your machine 
     * You have `Docker`_ installed on your machine
 
-    - For your Docker resources, you will need at least 2CPUs, 3.0GIB Memory, and 1.0GIB Swap
+        - For your Docker resources, you will need at least 2CPUs, 3.0GIB Memory, and 1.0GIB Swap
     
         - Follow the sections under the Advanced section on these sites depending on your operating machine to change the resources you allocate to Docker: https://docs.docker.com/docker-for-windows/#advanced or https://docs.docker.com/docker-for-mac/#preferences-menu   
 
@@ -47,7 +47,7 @@ Use the ``previous`` and ``next`` buttons to navigate through this guide.
    :titlesonly:
 
    pages/deploy-devops-tools
-   create_pipeline_config_repo
+   pages/configure-jenkins
    clone_sdp_repo
    configure_jenkins_in_chart
    deploy_sdp
