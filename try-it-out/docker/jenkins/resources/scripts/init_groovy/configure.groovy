@@ -70,3 +70,30 @@ CredentialsScope.GLOBAL, // Scope
 
 SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), dockerCred)
 
+// Setup the configuration within Jenkins to be be able to communicate with the SonarQube instance
+      String sonarqubeURL = "http://sdp-sonarqube:9000"
+      def sonar = Jenkins.getInstance().getDescriptor("hudson.plugins.sonar.SonarGlobalConfiguration")
+      def inst = new SonarInstallation("SonarQube",
+                                   sonarqubeURL,
+                                   "", "5.3", "", new TriggersConfig(), "")
+      
+      sonar.setInstallations(inst)
+
+
+      // Create the Jenkins webhook within Sonarqube to communicate to Jenkins that analysis was completed
+      String webhook = "http://sdp-jenkins:8080/sonarqube-webhook/"
+      String webhookPath = '/api/settings/set'
+      def url = new URL(sonarqubeURL + webhookPath)
+      String encodedValues = java.net.URLEncoder.encode("{\"name\":\"Jenkins\",\"url\":\"$webhook\"}", "UTF-8")
+      String urlParameters  = "key=sonar.webhooks.global&fieldValues=$encodedValues";
+      connection = url.openConnection()
+      connection.setRequestMethod("POST")
+      connection.doOutput = true
+      def authString = "admin:admin".getBytes().encodeBase64().toString()
+      connection.setRequestProperty ("Authorization", 'Basic YWRtaW46YWRtaW4=');
+      def writer = new OutputStreamWriter(connection.outputStream)
+      writer.flush()
+      writer.write(urlParameters.toCharArray())
+      writer.close()
+      connection.connect()
+    println connection.content.text
