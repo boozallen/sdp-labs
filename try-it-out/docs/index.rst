@@ -25,7 +25,7 @@ Prerequisites
     * You have `Git`_ installed on your machine 
     * You have `Docker`_ installed on your machine
 
-        - For your Docker resources, you will need at least 2CPUs, 3.0GIB Memory, and 1.0GIB Swap
+        - For your Docker resources, you will need at least 2CPUs, 3.0GIB Memory, and 1.0GIB Swap to ensure that everything within this guide can run properly
     
         - Follow the sections under the Advanced section on these sites depending on your operating machine to change the resources you allocate to Docker: https://docs.docker.com/docker-for-windows/#advanced or https://docs.docker.com/docker-for-mac/#preferences-menu   
 
