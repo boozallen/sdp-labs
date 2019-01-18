@@ -48,3 +48,13 @@ For your conenvience, we have already automated the following thing to allow you
     * Creation of Jenkins Credentials to be able to access SonarQube as well as your local Docker registry
     * Downloading all the needed plugins required for the SDP including the Jenkins Templating Engine plugin
     * Creation of a webhook within SonarQube to notify your Jenkins instance that code analysis was successfully completed
+
+=========================================
+Register Insecure Docker Registry
+=========================================
+
+To be able to use and access the Docker registry that you just deployed, you will need to add the Docker registry's IP Address and Port (which you can find using ``docker ps``) to the list of insecure registries found in your Docker Preferences.
+
+Follow the instructions under the section labeled "Deploy a plain HTTP registry" on the following website to do so within the format of ``IP_Address:Port``: https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry
+
+.. note:: The URL of the Docker registry should not be preceded by **http://** when being added to the list of insecure registries.
