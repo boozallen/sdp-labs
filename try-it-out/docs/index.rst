@@ -47,8 +47,8 @@ Use the ``previous`` and ``next`` buttons to navigate through this guide.
    :titlesonly:
 
    pages/deploy-devops-tools
-   pages/configure-jenkins
-   clone_sdp_repo
+   pages/choose-jenkins-pipeline-type
+   pages/create-repository-for-pipeline-config
    configure_jenkins_in_chart
    deploy_sdp
    configure_sdp
