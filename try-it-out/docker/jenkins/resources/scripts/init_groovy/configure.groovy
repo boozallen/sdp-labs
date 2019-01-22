@@ -1,6 +1,6 @@
 /*
-  Copyright © 2018 Booz Allen Hamilton. All Rights Reserved.
-  This software package is licensed under the Booz Allen Public License. The license can be found in the License file or at http://boozallen.github.io/licenses/bapl
+Copyright © 2018 Booz Allen Hamilton. All Rights Reserved.
+This software package is licensed under the Booz Allen Public License. The license can be found in the License file or at http://boozallen.github.io/licenses/bapl
 */
 
 import jenkins.*
@@ -51,49 +51,81 @@ import hudson.tools.InstallSourceProperty
 
 
 Credentials sonarqubeCred = (Credentials) new UsernamePasswordCredentialsImpl(
-CredentialsScope.GLOBAL, // Scope
-"sonarqube", // id
-"sonarqube", // description
-"admin", // username
-"admin" // password
+  CredentialsScope.GLOBAL, // Scope
+  "sonarqube", // id
+  "sonarqube", // description
+  "admin", // username
+  "admin" // password
 )
 
 SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), sonarqubeCred)
 
 Credentials dockerCred = (Credentials) new UsernamePasswordCredentialsImpl(
-CredentialsScope.GLOBAL, // Scope
-"sdp-docker-registry", // id
-"sdp-docker-registry", // description
-"unused", // username
-"unused" // password
+  CredentialsScope.GLOBAL, // Scope
+  "sdp-docker-registry", // id
+  "sdp-docker-registry", // description
+  "unused", // username
+  "unused" // password
 )
 
 SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), dockerCred)
 
 // Setup the configuration within Jenkins to be be able to communicate with the SonarQube instance
-      String sonarqubeURL = "http://sdp-sonarqube:9000"
-      def sonar = Jenkins.getInstance().getDescriptor("hudson.plugins.sonar.SonarGlobalConfiguration")
-      def inst = new SonarInstallation("SonarQube",
-                                   sonarqubeURL,
-                                   "", "5.3", "", new TriggersConfig(), "")
-      
-      sonar.setInstallations(inst)
+String sonarqubeURL = "http://sdp-sonarqube:9000"
+def sonar = Jenkins.getInstance().getDescriptor("hudson.plugins.sonar.SonarGlobalConfiguration")
+def inst = new SonarInstallation(
+  "SonarQube",
+  sonarqubeURL,
+  "", 
+  "5.3",
+  "",
+  new TriggersConfig(),
+  ""
+)
+
+sonar.setInstallations(inst)
 
 
-      // Create the Jenkins webhook within Sonarqube to communicate to Jenkins that analysis was completed
-      String webhook = "http://sdp-jenkins:8080/sonarqube-webhook/"
-      String webhookPath = '/api/settings/set'
-      def url = new URL(sonarqubeURL + webhookPath)
-      String encodedValues = java.net.URLEncoder.encode("{\"name\":\"Jenkins\",\"url\":\"$webhook\"}", "UTF-8")
-      String urlParameters  = "key=sonar.webhooks.global&fieldValues=$encodedValues";
-      connection = url.openConnection()
-      connection.setRequestMethod("POST")
-      connection.doOutput = true
-      def authString = "admin:admin".getBytes().encodeBase64().toString()
-      connection.setRequestProperty ("Authorization", 'Basic YWRtaW46YWRtaW4=');
-      def writer = new OutputStreamWriter(connection.outputStream)
-      writer.flush()
-      writer.write(urlParameters.toCharArray())
-      writer.close()
-      connection.connect()
-    println connection.content.text
+// wait for SonarQube to be ready
+String healthCheckPath = "/api/system/health" 
+String result = "init" 
+while (!result.contains("GREEN")){
+  try{
+    println "Waiting for SonarQube to be ready.." 
+    healthUrl = new URL(sonarqubeURL + healthCheckPath)
+    connection = healthUrl.openConnection()
+    connection.setRequestMethod("GET")
+    connection.doOutput = true 
+    authString = "admin:admin".getBytes().encodeBase64().toString()
+    connection.setRequestProperty ("Authorization", 'Basic YWRtaW46YWRtaW4=');
+    writer = new OutputStreamWriter(connection.outputStream)
+    writer.flush()
+    writer.close()
+    connection.connect()
+    result = connection.content.text
+    println "   health check returned: ${result}"
+  }catch(any){
+    println "exception thrown: "
+    println any 
+  }
+  sleep 5000
+}
+
+println "SonarQube is Ready!"
+
+// Create the Jenkins webhook within Sonarqube to communicate to Jenkins that analysis was completed
+String webhook = "http://sdp-jenkins:8080/sonarqube-webhook/"
+String webhookPath = '/api/settings/set'
+def url = new URL(sonarqubeURL + webhookPath)
+String encodedValues = java.net.URLEncoder.encode("{\"name\":\"Jenkins\",\"url\":\"$webhook\"}", "UTF-8")
+String urlParameters  = "key=sonar.webhooks.global&fieldValues=$encodedValues";
+connection = url.openConnection()
+connection.setRequestMethod("POST")
+connection.doOutput = true
+def authString = "admin:admin".getBytes().encodeBase64().toString()
+connection.setRequestProperty ("Authorization", 'Basic YWRtaW46YWRtaW4=');
+def writer = new OutputStreamWriter(connection.outputStream)
+writer.flush()
+writer.write(urlParameters.toCharArray())
+writer.close()
+connection.connect()
