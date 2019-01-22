@@ -1,7 +1,11 @@
 version: '3'
+networks:
+  sdp:
+    driver: bridge
 services:
   jenkins:
-    network_mode: bridge
+    networks:
+      - sdp
     privileged: true
     user: root
     container_name: sdp-jenkins
@@ -14,11 +18,12 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker:/usr/local/bin/docker
-    links: 
+    links:
       - sonarqube
-      - registry 
+      - registry
   sonarqube:
-    network_mode: bridge
+    networks:
+      - sdp
     container_name: sdp-sonarqube
     image: sonarqube:latest
     build:
@@ -28,13 +33,15 @@ services:
     - 9000:9000
     - 9092:9092
   registry:
-    network_mode: bridge
+    networks:
+      - sdp
     container_name: sdp-registry
     image: registry:2
     ports:
     - 5000:5000
   sonar-scanner:
-    network_mode: bridge
+    networks:
+      - sdp
     container_name: sonar-scanner
     image: sdp/sonar-scanner:latest
     build:
