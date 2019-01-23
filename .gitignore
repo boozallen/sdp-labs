@@ -1,4 +1,4 @@
 .idea
 *.iml
-try-it-out/docs/_build
-try-it-out/docs/_static
+_build
+_static
