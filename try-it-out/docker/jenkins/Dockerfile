@@ -11,7 +11,8 @@ EXPOSE 50000
 USER root
 
 # copy in custom common-workflow plugin
-COPY resources/plugins/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
+# COPY resources/plugins/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
+ADD https://github.com/boozallen/jenkins-templating-engine/releases/download/v0.1-alpha/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
 
 # install plugins 
 COPY resources/plugins/plugins.txt /usr/share/jenkins/ref/plugins.txt
