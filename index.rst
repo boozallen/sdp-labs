@@ -9,6 +9,7 @@ The purpose of the SDP-Labs is to give users the opportunity to get some hands-o
 .. toctree::
    :hidden:
    :maxdepth: 1
+   :glob:
    :titlesonly:
 
-   try-it-out/docs/index
+   **/docs/index
