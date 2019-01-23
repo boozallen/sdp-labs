@@ -114,6 +114,13 @@ while (!result.contains("GREEN")){
 println "SonarQube is Ready!"
 
 // Create the Jenkins webhook within Sonarqube to communicate to Jenkins that analysis was completed
+
+String responseCode = "-1" 
+
+while (!responseCode.contains("204")){
+    try{
+
+    
 String webhook = "http://sdp-jenkins:8080/sonarqube-webhook/"
 String webhookPath = '/api/settings/set'
 def url = new URL(sonarqubeURL + webhookPath)
@@ -129,3 +136,14 @@ writer.flush()
 writer.write(urlParameters.toCharArray())
 writer.close()
 connection.connect()
+
+responseCode = connection.getResponseCode()
+println "post request for webhook returned: ${responseCode}"
+
+}catch(any){
+println "exception thrown: "
+println any 
+}
+sleep 5000
+}
+println "SonarQube has been fully configured!"
