@@ -18,6 +18,7 @@ give you hands-on experience with Booz Allen's Solutions Delivery Platform.
    :hidden:
    :glob: 
    :maxdepth: 1
+   :glob:
    :titlesonly:
 
    **/docs/index
