@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'SDP Labs'
+project = u'SDP Learning Labs'
 copyright = u'2019, Booz Allen Hamilton'
 author = u'Jeffrey Chiang'
 
