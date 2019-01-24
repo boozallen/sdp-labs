@@ -52,19 +52,22 @@ Choose a location for your project files, and create a new directory called **pi
 In a text editor, create a file within the pipeline-configuration directory called **pipeline_config.groovy** with the following content:
 
 .. code-block:: bash
-
-    sdp_image_repository = "http://0.0.0.0:5000"
-    sdp_image_repository_credential = "sdp-docker-registry"
     application_image_repository = "0.0.0.0:5000"
     application_image_repository_credential = "sdp-docker-registry"
-
     libraries{
-        sdp
-        github_enterprise	
-        sonarqube{
-            enforce_quality_gate = true
+      sdp{
+        images{
+          registry = "http://0.0.0.0:5000" // registry url
+          cred = "sdp-docker-registry"// jenkins cred id to authenticate
+          repo = "sdp"       // repo to find sdp images -> currently hard coded as "sdp"
+          docker_args = "--network=try-it-out_sdp"  // docker runtime args
         }
-        docker
+      }
+      github_enterprise
+      sonarqube{
+        enforce_quality_gate = true
+      }
+      docker
     }
 
 .. note:: You may need to change the IP Address of the ``sdp_image_repository`` and ``application_image_repository`` depending on what it is for your docker registry.
