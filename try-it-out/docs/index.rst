@@ -21,7 +21,6 @@ Prerequisites
 =============
 
     * A text editor
-    * You have `Gradle version 4.2.10`_ or above installed on your machine 
     * You have `Git`_ installed on your machine 
     * You have `Docker`_ installed on your machine
 
@@ -29,7 +28,6 @@ Prerequisites
     
         - Follow the sections under the Advanced section on these sites depending on your operating machine to change the resources you allocate to Docker: https://docs.docker.com/docker-for-windows/#advanced or https://docs.docker.com/docker-for-mac/#preferences-menu   
 
-.. _Gradle version 4.2.10: https://gradle.org/install/#manually
 .. _Git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 .. _Docker: https://docs.docker.com/install/
 

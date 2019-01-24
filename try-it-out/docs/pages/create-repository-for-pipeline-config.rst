@@ -70,7 +70,7 @@ In a text editor, create a file within the pipeline-configuration directory call
       docker
     }
 
-.. note:: You may need to change the IP Address of the ``sdp_image_repository`` and ``application_image_repository`` depending on what it is for your docker registry.
+.. note:: You may need to change the IP Address of the ``registry`` and ``application_image_repository`` values depending on what it is for your docker registry.
 
 The pipeline_config.groovy file are a big part what allows SDP to do something special: 
 it allows for easy pipeline reuse by different application repositories. While it’s not explained in this tutorial, 
@@ -80,9 +80,14 @@ in a specific order that can easily be called by your applications’ different 
 This file has several parts to it.
 In general, it consists of configuring some parameters for the local Docker registry URLs and their respective credentials that you will be using later in this guide as well as specifying all the libraries that you will be using.
 
-The ``sdp_image_repository`` URLs defined within the given pipeline_config.groovy file specifies the Docker registry where SDP-related Docker containers are pulled from while the `application_image_repository`` specifies the Docker registry where Docker images will be pushed to.
-In this example, the local Docker registry we setup earlier is used for both cases. The values defined within each respective ``repository credential`` is the ID of the credentials that Jenkins uses to access your Docker registry (which we have already automated the creation of within the Jenkins instance).
-For more information about the **image_repository** key-value pairs, visit this page: https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/app-image-repo.html
+The ``application_image_repository`` URL defined within the given pipeline_config.groovy file specifies the Docker registry where Docker images will be pushed to while the respective credential key specifies the Jenkins credentials (which we have already automated the creation of within the Jenkins instance) needed for Jenkins to be able to access your given Docker registry. 
+In this example, the local Docker registry we setup earlier is where application Docker images will be pushed to.
+For more information about the **application_image_repository** key-value pairs, visit this page: https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/app-image-repo.html
+
+The values defined within the ``libraries.sdp.images`` block defines some parameters of how SDP-related Docker images will be handled. The registry value specifies the URL for where SDP Docker images will be pulled from using the local Docker registry you already setup while the ``cred`` field specifies the ID of the Jenkins credential used to access it.
+The ``docker_args`` field allows for users to enter any Docker flags they want to use to run SDP-related Docker images, as shown by the ``--network=try-it-out_sdp`` specified, which ensures that a SDP-specific Docker container will be put in a `Docker network`_ labeled "try-it-out_sdp."
+
+.. _Docker network: https://docs.docker.com/v17.09/engine/userguide/networking/#user-defined-networks
 
 In the section enclosed by **libraries**, we declare each of the libraries that we’d like to use within our pipeline and set any parameters that we need to set for the respective library.
 As there are no mandatory library configuration options you need to set for the Docker library, you can leave it blank.
