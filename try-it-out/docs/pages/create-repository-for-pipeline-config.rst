@@ -42,9 +42,9 @@ You should be taken to a screen describing how you can upload files from your lo
 As you haven’t created any files for the pipeline-configuration repository yet, let’s start there.
 
 
-==================================
-Create Pipeline Configuration File
-==================================
+======================================
+Create the Pipeline Configuration File
+======================================
 
 
 Choose a location for your project files, and create a new directory called **pipeline-configuration**.
@@ -69,12 +69,21 @@ In a text editor, create a file within the pipeline-configuration directory call
 
 .. note:: You may need to change the IP Address of the ``sdp_image_repository`` and ``application_image_repository`` depending on what it is for your docker registry.
 
+The pipeline_config.groovy file are a big part what allows SDP to do something special: 
+it allows for easy pipeline reuse by different application repositories. While it’s not explained in this tutorial, 
+you may want to look at defining stage within your pipeline_config.groovy file to group together different library steps 
+in a specific order that can easily be called by your applications’ different Jenkinsfiles, as described on this page: https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/conditional-inheritance.html
+
 This file has several parts to it.
 In general, it consists of configuring some parameters for the local Docker registry URLs and their respective credentials that you will be using later in this guide as well as specifying all the libraries that you will be using.
 
+The ``sdp_image_repository`` URLs defined within the given pipeline_config.groovy file specifies the Docker registry where SDP-related Docker containers are pulled from while the `application_image_repository`` specifies the Docker registry where Docker images will be pushed to.
+In this example, the local Docker registry we setup earlier is used for both cases. The values defined within each respective ``repository credential`` is the ID of the credentials that Jenkins uses to access your Docker registry (which we have already automated the creation of within the Jenkins instance).
+For more information about the **image_repository** key-value pairs, visit this page: https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/app-image-repo.html
+
 In the section enclosed by **libraries**, we declare each of the libraries that we’d like to use within our pipeline and set any parameters that we need to set for the respective library.
 As there are no mandatory library configuration options you need to set for the Docker library, you can leave it blank.
-However, in the sonarqube stage, we set the enforce_quality_gate boolean variable to be true so that the Jenkins build will fail if the code does not pass the quality gate, or some general code quality percentage, which is configurable in SonarQube itself.
+However, in the sonarqube stage, we set the **enforce_quality_gate** boolean variable to be true so that the Jenkins build will fail if the code does not pass the quality gate, or some general code quality percentage, which is configurable in SonarQube itself.
 
 For more information about the Docker and Sonarqube libraries, you can go here:
     * Docker: https://boozallen.github.io/sdp-pipeline-framework/pages/libraries/docker.html
@@ -85,6 +94,8 @@ For a list of all the libraries that have already been integrated with SDP in ge
 .. _here: https://pages.github.boozallencsn.com/solutions-delivery-platform/pipeline-framework/pages/libraries/
 
 When you’re done creating the pipeline_config.groovy file and saving it to the pipeline-configuration directory, you will now push the files to the GitHub repository you made in the previous step.
+
+For more information about what you can do within pipeline-configuration files, take a look at the different sub-sections under the "For SDP Users" section: https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/index.html
 
 ===================================
 Pushing Code to a GitHub Repository
@@ -106,4 +117,8 @@ Afterwards, enter the following commands into your terminal to push the contents
 
 .. _GitHub Organization: https://help.github.com/articles/about-organizations/
 
+If you refresh your browser with the GitHub tab still open, you should see something similar to the screenshot shown below:
 
+.. image:: ../images/create-repository-for-pipeline-config/view_github.png
+
+You now have a GitHub repository to configure a pipeline that you can use to build out pipelines for the Spring Boot API!
