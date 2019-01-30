@@ -70,6 +70,19 @@ Credentials dockerCred = (Credentials) new UsernamePasswordCredentialsImpl(
 
 SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), dockerCred)
 
+// create jobs defined by JobDSL Scripts
+def job_dsl = new File("${System.getenv("JENKINS_HOME")}/init.jobdsl.d")
+def jobManagement = new JenkinsJobManagement(System.out, [:], new File("."))
+job_dsl.eachFileRecurse (FileType.FILES) { script ->
+  try{
+  	new DslScriptLoader(jobManagement).runScript(script.text)
+  }catch(any){
+    log "  ERROR: ${any}"
+  }
+}
+
+
+
 // Setup the configuration within Jenkins to be be able to communicate with the SonarQube instance
 String sonarqubeURL = "http://sdp-sonarqube:9000"
 def sonar = Jenkins.getInstance().getDescriptor("hudson.plugins.sonar.SonarGlobalConfiguration")
