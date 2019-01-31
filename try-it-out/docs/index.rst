@@ -3,7 +3,7 @@
 Try It Out
 ===========
 
-Welcome to the Try It Out lab for the Solutions Delivery Platform!
+Welcome to the Try It Out lab for the Solutions Delivery Platform (SDP)!
 
 ========
 Overview
@@ -22,11 +22,15 @@ Prerequisites
 
     * A text editor
     * You have `Git`_ installed on your machine 
-    * You have `Docker`_ installed on your machine
+    * You have `Docker for Mac`_ or `Docker for Windows`_ installed on your machine
 
         - For your Docker resources, you will need at least 2CPUs, 3.0GIB Memory, and 1.0GIB Swap to ensure that everything within this guide can run properly
     
         - Follow the sections under the Advanced section to change the resources you allocate to Docker depending on if you have a `Windows`_ computer or a `Mac`_ computer. 
+
+.. _Docker for Mac: https://docs.docker.com/docker-for-mac/install/
+
+.. _Docker for Windows: https://docs.docker.com/docker-for-windows/install/
 
 .. _Windows: https://docs.docker.com/docker-for-windows/#advanced
 .. _Mac: https://docs.docker.com/docker-for-mac/#preferences-menu
@@ -48,4 +52,5 @@ Use the ``previous`` and ``next`` buttons to navigate through this guide.
 
    pages/deploy-devops-tools
    pages/choose-jenkins-pipeline-type
-   pages/create-repository-for-pipeline-config
+   pages/pipeline-configuration-file
+   pages/jenkinsfile

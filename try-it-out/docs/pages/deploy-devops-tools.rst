@@ -3,9 +3,22 @@
 Deploy The Devops Tools
 -----------------------
 
-In this section, you will be deploying all of the DevOps tools that we will be using within this tutorial. This consists of deploying a Jenkins instance, a SonarQube server, and a local (insecure) Docker registry. 
+In this section, you will be deploying all of the DevOps tools that we will be using within this tutorial. The following table lists each tool that will be used and their general purpose.
 
-.. note:: The tools that we will be utilizing throughout this tutorial are not fully secure and thus not production-ready. They are meant to just be a showcase of what SDP itself can do. 
+The table below lists all the tools that we will be deploying by the end of this section.
+
+.. csv-table:: Tools to be Deployed
+   :header: "**Tool**", "**Description**"
+
+    "`(Insecure) Docker Registry`_", "Server-side application where you can store and retrieve Docker images"
+    "`Jenkins`_", "An open-source software tool used for continuous integration for the automation of building and deploying projects"
+    "`SonarQube Server`_", "A software tool used to perform automate code analysis for potential security vulnerabilities, bugs, and code smells"
+
+.. _(Insecure) Docker Registry: https://docs.docker.com/registry/
+.. _Jenkins: https://jenkins.io/
+.. _SonarQube Server: https://www.sonarqube.org/about/
+
+.. note:: The tools that we will be utilizing throughout this tutorial are not fully secure and thus not production-ready. They are meant to just be part of the showcase of what SDP itself can do. 
 
 To begin, clone our SDP-Labs_ GitHub repository, which includes all of the files you'll need to use throughout our guide. 
 
@@ -28,7 +41,7 @@ Run the following command in your terminal from the top-level directory of the `
 
 .. code-block:: bash
 
-   docker-compose -f ./try-it-out/docker-compose.yaml up -d --scale sonar-scanner=0
+   docker-compose -f ./try-it-out/docker-compose.yaml up --build -d --scale sonar-scanner=0
 
 .. note:: The ``docker-compose`` command run above may not work on a company's WIFI depending on its firewall settings, so you may need to run it on a private network or where firewall rules are more lax. 
 
@@ -39,12 +52,6 @@ The above command will create and run the following Docker containers: Jenkins, 
 The response should show something similar to the following screenshot.
 
 .. image:: ../images/deploy-devops-tools/docker_ps_command.png
-
-For your conenvience, we have already automated the following thing to allow you to focus on the usage of SDP:
-    
-    * Creation of Jenkins Credentials to be able to access SonarQube as well as your local Docker registry
-    * Downloading all the needed plugins required for the SDP including the Jenkins Templating Engine plugin
-    * Creation of a webhook within SonarQube to notify your Jenkins instance that code analysis was successfully completed
 
 =================================
 Register Insecure Docker Registry
@@ -61,3 +68,29 @@ Follow the instructions under the section labeled "Deploy a plain HTTP registry"
 Validate
 ========
 
+Let's verify that you were able to successfully deploy each needed application and that you can access each one.
+
+**Docker Registry**
+
+    Navigate to ``http://localhost:5000/v2/_catalog``. You should see the following screen:
+
+    .. image:: ../images/deploy-devops-tools/docker_registry.png
+
+    If you don't see the above image, go to your computer's terminal running Docker and enter the command ``docker logs sdp-registry`` to determine what may have been misconfigured.
+
+
+**Jenkins**
+
+    Navigate to ``http://localhost:8080``. You should see the following screen:
+
+    .. image:: ../images/deploy-devops-tools/jenkins.png
+
+    If you don't see the above image, go to your computer's terminal running Docker and enter the command ``docker logs sdp-jenkins`` to determine what may have been misconfigured.
+
+**SonarQube Server**
+
+    Navigate to ``http://localhost:9000``. You should see the following screen:
+
+    .. image:: ../images/deploy-devops-tools/sonarqube.png
+
+    If you don't see the above image, go to your computer's terminal running Docker and enter the command ``docker logs sdp-sonarqube`` to determine what may have been misconfigured.

@@ -10,20 +10,23 @@ To begin, navigate to the homepage of your Jenkins instance.
 
 Click **New Item** on the left-hand menu to create a new Jenkins pipeline. 
 
-.. image:: ../images/choose-jenkins-pipeline-type/click_new_item.png
+For the **Item Name**, enter **sample-spring-boot-api**. Note that the **item name** you give it is arbitrary, 
+but for consistency and referencing purposes, we'll be calling it **sample-spring-boot-api**. 
 
-For the **Item Name**, enter **sample-spring-boot-api**. Note that the **item name** you give it is arbitrary, but for consistency and referencing purposes, we'll be calling it **sample-spring-boot-api**. Below, you should see several options for the type of job to use. For the options that can currently be used with the Jenkins Templating Engine, they can be described as follows:
-    
-    * Pipeline: Use this option when you want a one off job that may or may not be tied to a Source Control Management(SCM) tool.
-    * Folder: This option is useful for grouping things together that might not be connected otherwise to ensure they all inherit specific pipeline configurations. For example, if you had two GitHub repositories that were in different organizations, you could select this option, configure a configuration for it, and then create two new items (likely multipbranch pipelines) within the folder to be able to inherit from the original parent folder's pipeline configurations.
-    * GitHub Organization: This option is useful for setting a single pipeline configuration for all repositories under a specific GitHub Organization at the same time.
-    * Multibranch Pipeline: Use this option when you have a specific GitHub repository that you'd like to configure. When using this option, you cannot setup a child Git repository or Git organization to inherit from this item's configured pipeline configurations.
+You will see the different types of items you can select from. For more information about which job types you can use currently with the Jenkins
+Templating Engine, go here.
 
-For the purposes of this guide, we will be using a **Multibranch Pipeline**, as we will only be configuring a pipeline for a single GitHub repository. The settings for the new pipeline should look like the following screen:
+For the purposes of this guide, we will be using a **Multibranch Pipeline**, as we will only be configuring a pipeline for a single GitHub repository.
+The settings for the new pipeline should look like the following screen:
 
 .. image:: ../images/choose-jenkins-pipeline-type/multibranch_pipeline_selected.png
 
 Click **OK**. You should be taken to a screen to configure your new pipeline. 
+
+The below Gif shows all the things that a user needs to do to continue through this lab as described above.
+
+.. image:: ../images/choose-jenkins-pipeline-type/create_new_item.gif
+
 
 To use the Jenkins Templating Engine, you will need to configure the configuration section 
 labeled Jenkins Templating Engine to specify the Git repository where your pipeline configurations are stored,

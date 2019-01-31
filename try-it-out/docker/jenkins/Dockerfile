@@ -18,6 +18,11 @@ ADD https://github.com/boozallen/jenkins-templating-engine/releases/download/v0.
 COPY resources/plugins/plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
+# insert job dsl scripts
+RUN mkdir -p /var/jenkins_home/init.jobdsl.d
+COPY resources/jobs/* /var/jenkins_home/init.jobdsl.d/
+RUN chmod 777 /var/jenkins_home/init.jobdsl.d/*
+
 # copy in entry point scripts
 COPY resources/scripts/jenkins.sh /usr/local/bin/jenkins.sh
 RUN chmod 777 /usr/local/bin/jenkins.sh
