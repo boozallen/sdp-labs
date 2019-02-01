@@ -4,14 +4,13 @@
 Understanding the Pipeline Configuration File
 ---------------------------------------------
 
-In this step, we will be going over the pipeline configuration file that has already been placed within the `sample application
-GitHub Repository`_ we already created for you. 
+In this step, we will be going over the pipeline configuration file that has already been created and placed within the `sample application
+GitHub Repository`_. 
 
 .. _sample application GitHub Repository: https://github.com/boozallen/sdp-labs-sample-app
 
-The `pipeline_config.groovy`_ file is a file where organization-wide settings can be configured for your DevSecOps pipelines.
-This repository will contain your business organization or project’s configuration file, which specifies the organization-wide
-libraries you’d like to utilize within the platform, the application environments, your pipeline templates, and more. 
+The `pipeline_config.groovy`_ file is a file where organization or project-wide settings can be configured for your DevSecOps pipelines.
+It contains the organization-wide libraries you’d like to utilize within SDP, the application environments, your pipeline templates, and more. 
 
 For this lab, the `pipeline_config.groovy`_ file that will be able to perform static quality analysis using SonarQube
 and to build a Docker image if the given code reaches a certain code quality based on the analysis.
@@ -66,7 +65,7 @@ In the pipeline_config.groov file above, there are four different libraries: `sd
 .. _docker: https://boozallen.github.io/sdp-docs/pages/libraries/docker/README.html
 
 Inside each individual library, there may be a section within some curly braces of some configurable parameters. We will be going into a more
-in-depth explanation for each library in the new few sections. As the ``github_enterprise`` library didn't have any parameters within it, we
+in-depth explanation for each library in the next few sections. As the ``github_enterprise`` library didn't have any parameters within it, we
 will be skipping over an explanation for that library. You just need to know that it is how your Jenkins instance is able to interact with
 (in this case, the public version of) GitHub.
 
@@ -78,7 +77,7 @@ The images section within the SDP library contains four parameters that were con
 images created and relating to SDP. 
 
 The ``registry`` value specifies the URL of the Docker registry for where SDP Docker images will be pulled from whereas the value for ``cred`` specifies the ID
-of the Jenkins credential that Jenkins will be using to access that Docker registry. In this case, the local Docker registry we deployed
+of the Jenkins credential that Jenkins will be using to access that Docker registry. In this case, the local Docker registry (accessible at localhost:5000) we deployed
 earlier is where we will be pulling and pushing our SDP Docker images to.
 
 Finally, the ``docker_args`` parameter forces all the SDP-related Docker images to be run with any given Docker flag, as the 
@@ -92,8 +91,10 @@ Finally, the ``docker_args`` parameter forces all the SDP-related Docker images 
 SonarQube Library
 =================
 
-In the SonarQube library, the **enforce_quality_gate** boolean variable is set to true so that the Jenkins build will fail if the code
-does not pass the quality gate, or some general code quality percentage, which is configurable in SonarQube itself.
+In the SonarQube library, the ``enforce_quality_gate`` boolean variable is set to true so that the Jenkins build will fail if the code
+does not pass the `quality gate`_, or some general code quality percentage, which is configurable in SonarQube itself.
+
+.. _quality gate: https://docs.sonarqube.org/latest/user-guide/quality-gates/
 
 ==============
 Docker Library
@@ -108,6 +109,6 @@ The value of ``cred`` parameter is the ID of the Jenkins credential Jenkins uses
 
 .. note::
 
-  The value of the ``localhost:5000`` URL does not contain **http://** on purpose, as the URL value is what is used for the Docker tag,
-  whose syntax does not allow for **http:// to be in there.
+  The value of the ``localhost:5000`` URL does not contain ``http://`` on purpose, as the URL value is what is used for the Docker tag,
+  whose syntax does not allow for ``http://`` to be in there.
 

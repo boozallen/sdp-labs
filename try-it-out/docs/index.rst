@@ -9,12 +9,20 @@ Welcome to the Try It Out lab for the Solutions Delivery Platform (SDP)!
 Overview
 ========
 
-The purpose of this guide is to help you set up the Solutions Delivery Platform on your own local computer so that you can try it out and see what magic it can do!
+The purpose of this lab is to help you set up the Solutions Delivery Platform on your own local computer so that you can try it out and see what magic it can do!
 
-It will walk you though the steps of setting up core DevOps tools using Docker containers, creating a simple pipeline for some sample Spring Boot API code,
-and utilizing some of the key features of the Jenkins Templating Engine, such as :ref:`Organizational Governance <conditional inheritance>`.
+It will walk you though the steps of setting up core DevOps tools using Docker containers, running a Jenkins pipeline for some sample Spring Boot API code,
+and utilizing some of the key features of the Jenkins Templating Engine.
+
+For your convenience, we have automated the creation of the Jenkins pipeline itself. In general, the pipeline is a **Multibranch Pipeline**,
+which is a pipeline type that can run all the branches within a single GitHub repository.
 
 The pipeline itself will be able to build a Docker image from a sample Spring Boot API application and perform code analysis on it as well using SonarQube.
+
+The `sample application GitHub repository`_ represents an web application that users of SDP might want to create a pipeline for.
+
+.. _sample application GitHub repository: https://github.com/boozallen/sdp-labs-sample-app
+
 
 =============
 Prerequisites
@@ -26,7 +34,7 @@ Prerequisites
 
         - For your Docker resources, you will need at least 2CPUs, 3.0GIB Memory, and 1.0GIB Swap to ensure that everything within this guide can run properly
     
-        - Follow the sections under the Advanced section to change the resources you allocate to Docker depending on if you have a `Windows`_ computer or a `Mac`_ computer. 
+        - Follow the sections under the Advanced section to change the resources you allocate to Docker depending on if you have a `Windows`_ computer or a `Mac`_ computer 
 
 .. _Docker for Mac: https://docs.docker.com/docker-for-mac/install/
 
@@ -51,6 +59,7 @@ Use the ``previous`` and ``next`` buttons to navigate through this guide.
    :titlesonly:
 
    pages/deploy-devops-tools
-   pages/choose-jenkins-pipeline-type
    pages/pipeline-configuration-file
    pages/jenkinsfile
+   pages/create-github-credentials
+   pages/run-jenkins-build.rst

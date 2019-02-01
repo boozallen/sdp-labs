@@ -3,9 +3,7 @@
 Deploy The Devops Tools
 -----------------------
 
-In this section, you will be deploying all of the DevOps tools that we will be using within this tutorial. The following table lists each tool that will be used and their general purpose.
-
-The table below lists all the tools that we will be deploying by the end of this section.
+In this section, you will be deploying all of the DevOps tools that we will be using throughout this tutorial. The following table lists each tool that will be used and their general purpose.
 
 .. csv-table:: Tools to be Deployed
    :header: "**Tool**", "**Description**"
@@ -61,7 +59,7 @@ To be able to use and access the Docker registry that you just deployed, you wil
 
 Follow the instructions under the section labeled "Deploy a plain HTTP registry" on the following website to do so within the format of ``IP_Address:Port``: https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry
 
-.. note:: The URL of the Docker registry should not be preceded by **http://** when being added to the list of insecure registries.
+.. note:: The URL of the Docker registry should **not** be preceded by ``http://`` when being added to the list of insecure registries.
 
 
 ========
