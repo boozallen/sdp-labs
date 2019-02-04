@@ -57,9 +57,11 @@ Register Insecure Docker Registry
 
 To be able to use and access the Docker registry that you just deployed, you will need to add the Docker registry's IP Address and Port (which should be ``localhost:5000``) to the list of insecure registries found in your Docker Preferences.
 
-Follow the instructions under the section labeled "Deploy a plain HTTP registry" on the following website to do so: https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry
+Follow the instructions under the section labeled "Deploy a plain HTTP registry" found `here`_.
 
 .. note:: The URL of the Docker registry should **not** be preceded by ``http://`` when being added to the list of insecure registries.
+
+.. _here: https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry
 
 
 ========
