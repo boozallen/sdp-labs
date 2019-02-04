@@ -4,8 +4,8 @@
 Troubleshooting
 ---------------------
 
-On this guide, we'll be going over what we think might be some of the problems you might encounter while running our Try It Out Lab as well
-as a potential solution to get past it.
+On this page, we'll be going over what we think might be some of the problems you might encounter while running our Try It Out Lab as well
+as potential solutions to get past them.
 
 ============================
 Deploy the DevOps Tools Page
