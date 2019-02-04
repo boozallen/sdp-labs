@@ -3,7 +3,7 @@
 Try It Out
 ===========
 
-Welcome to the Try It Out lab for the Solutions Delivery Platform (SDP)!
+Welcome to the Try It Out Lab for the Solutions Delivery Platform (SDP)!
 
 ========
 Overview
@@ -63,3 +63,4 @@ Use the ``previous`` and ``next`` buttons to navigate through this guide.
    pages/jenkinsfile
    pages/create-github-credentials
    pages/run-jenkins-build.rst
+   pages/troubleshooting.rst
