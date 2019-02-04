@@ -49,9 +49,9 @@ some Docker containers don't get started.
     **Debugging Tip**: If the above solutions don't work when you run the ``docker-compose up`` command again, run the following command
     which will show the logs and hopefully provide some insight on why it's not working as expected:
 
-    .. code-block:: bash
-    
-        docker-compose -f ./try-it-out/docker-compose.yaml up --build --scale sonar-scanner=0
+        .. code-block:: bash
+        
+            docker-compose -f ./try-it-out/docker-compose.yaml up --build --scale sonar-scanner=0
 
 .. _Docker for Windows: https://docs.docker.com/docker-for-windows/#advanced
 
