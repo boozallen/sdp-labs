@@ -19,7 +19,7 @@ which is a Jenkins pipeline type that can run all the branches within a single G
 
 The pipeline itself will be able to build a Docker image from a sample Spring Boot API application and perform code analysis on it as well using SonarQube.
 
-The `sample application GitHub repository`_ represents an web application that users of SDP might want to create a pipeline for.
+The `sample application GitHub repository`_ represents a web application that users of SDP might want to create a pipeline for.
 
 .. _sample application GitHub repository: https://github.com/boozallen/sdp-labs-sample-app
 
