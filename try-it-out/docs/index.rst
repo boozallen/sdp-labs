@@ -15,7 +15,7 @@ It will walk you though the steps of setting up core DevOps tools using Docker c
 and utilizing some of the key features of the Jenkins Templating Engine.
 
 For your convenience, we have automated the creation of the Jenkins pipeline itself. In general, the pipeline is a **Multibranch Pipeline**,
-which is a pipeline type that can run all the branches within a single GitHub repository.
+which is a Jenkins pipeline type that can run all the branches within a single GitHub repository.
 
 The pipeline itself will be able to build a Docker image from a sample Spring Boot API application and perform code analysis on it as well using SonarQube.
 
