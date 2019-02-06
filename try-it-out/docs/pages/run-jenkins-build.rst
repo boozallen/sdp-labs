@@ -7,6 +7,14 @@ Run the Jenkins Build
 You've now done everything you needed to run the Jenkins build! Without further ado, let's actually run it and see what it
 can do.
 
+If you skipped over the majority of the :ref:`Create Jenkins Credentials for GitHub` section you will need to do the following, otherwise you can proceed to the http://localhost:8080/job/sample-spring-boot-api/job/master/ URL.
+
+    Navigate to http://localhost:8080/job/sample-spring-boot-api/.
+
+    On the left-hand menu, click the **Scan Multibranch Pipeline Now** button.
+    
+    Afterwards, click the **Scan Multibranch Pipeline Log** to view the logs and ensure that the correct branches were found from GitHub as you wait for a ``Finished: Success`` message at the bottom.
+
 Navigate to the general menu for the Jenkins pipeline of the sample code applications at http://localhost:8080/job/sample-spring-boot-api/job/master/.
 
 On the left-hand side, click **Build Now**. Afterwards, refresh the page and you should see a new build that is building. Click 
