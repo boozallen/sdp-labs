@@ -36,7 +36,7 @@ some Docker containers don't get started.
 
             You cannot undo the effects of this command once it is done.
 
-    **Solution 2**: Make sure that you have enough resource allocated to your Docker engine. 
+    **Solution 2**: Make sure that you have enough resources allocated to your Docker engine. 
     Follow the sections under the Advanced section to change the resources you allocate to Docker depending on if you're using
     `Docker for Windows`_ or `Docker for Mac`_.
 

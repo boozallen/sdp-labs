@@ -54,7 +54,7 @@ General Libraries
 On the top-most level, there is the ``libraries`` section. This is where you need to list out all the libraries that you'd like to utilize
 within your Jenkins pipelines and any other libraries they may depend on.
 
-In the pipeline_config.groov file above, there are four different libraries: `sdp`_, `github_enterprise`_, `sonarqube`_, and `docker`_.
+In the pipeline_config.groovy file above, there are four different libraries: `sdp`_, `github_enterprise`_, `sonarqube`_, and `docker`_.
 
 .. _sdp: https://boozallen.github.io/sdp-docs/pages/libraries/sdp/README.html
 
@@ -73,7 +73,7 @@ will be skipping over an explanation for that library. You just need to know tha
 SDP Library
 ===========
 
-The images section within the SDP library contains four parameters that were configurable. They resolve around the the storage of Docker
+The images section within the SDP library contains four parameters that were configurable. They resolve around the storage of Docker
 images created and relating to SDP. 
 
 The ``registry`` value specifies the URL of the Docker registry for where SDP Docker images will be pulled from whereas the value for ``cred`` specifies the ID
