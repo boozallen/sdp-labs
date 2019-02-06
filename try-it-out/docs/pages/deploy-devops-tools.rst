@@ -86,7 +86,7 @@ Let's verify that each tool was successfully deployed.
 
 **SonarQube Server**
 
-    | Navigate to ``http://localhost:9000``. 
+    | Navigate to `here <http://localhost:9000>`_. 
     | You should see the following screen:
 
     .. image:: ../images/deploy-devops-tools/sonarqube.png

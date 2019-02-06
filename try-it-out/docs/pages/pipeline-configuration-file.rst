@@ -12,8 +12,8 @@ GitHub Repository`_.
 The `pipeline_config.groovy`_ file is a file where organization or project-wide settings can be configured for your DevSecOps pipelines.
 It contains the organization-wide libraries you’d like to utilize within SDP, the application environments, your pipeline templates, and more. 
 
-For this lab, the `pipeline_config.groovy`_ file that will be able to perform static quality analysis using SonarQube
-and to build a Docker image if the given code reaches a certain code quality based on the analysis.
+For this lab, the `pipeline_config.groovy`_ file will be able to perform static quality analysis using SonarQube
+and build a Docker image if the given code reaches a certain code quality based on the analysis.
 
 While this example of a pipeline configuration only uses two software tools (Docker and SonarQube), 
 there are many other tools already integrated with SDP. For more information about the libraries that have already been 

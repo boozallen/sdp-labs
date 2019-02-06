@@ -23,7 +23,7 @@ Jenkins does the following in the list as ordered:
     5. Runs the ``static_code_analysis`` step from the `Jenkinsfile`_ to perform some code analysis on the sample code application using SonarQube
     6. Waits for a notification from the SonarQube server that the code analysis is complete
     7. Runs the ``build`` step from the `Jenkinsfile`_ to build a Docker image for the code from `sample application GitHub repository`_ using the repository's `Dockerfile`_
-    8. Pushes the Docker image from step 8 to your local Docker registry located at http://localhost:5000
+    8. Pushes the Docker image built from step 7 to your local Docker registry located at http://localhost:5000
 
 .. _pipeline_config.groovy: https://github.com/boozallen/sdp-labs-sample-app/blob/master/pipeline_config.groovy
 
