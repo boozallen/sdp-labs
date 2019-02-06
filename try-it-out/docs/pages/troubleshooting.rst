@@ -1,4 +1,4 @@
-.. try-it-out troubleshooting:
+.. _try-it-out troubleshooting:
 
 ---------------------
 Troubleshooting
