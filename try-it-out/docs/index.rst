@@ -46,8 +46,6 @@ Prerequisites
 .. _Git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 .. _Docker: https://docs.docker.com/install/
 
-
-
 **Skills**: The following skills would prove helpful but not needed to get through this lab
 
     * Docker
@@ -64,7 +62,8 @@ Prerequisites
    :hidden:
    :titlesonly:
 
-   pages/deploy-devops-tools
+   pages/environment-preparation
+   pages/sdp-overview
    pages/pipeline-configuration-file
    pages/jenkinsfile
    pages/create-github-credentials

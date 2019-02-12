@@ -1,8 +1,6 @@
-.. _Deploy Devops Tools:
-
-================
-The DevOps Tools
-================
+=======================
+Environment Preparation
+=======================
 
 In this section, you will be deploying all of the DevOps tools that we will be using throughout this tutorial. 
 The following table lists each tool that will be used and their general purpose.
@@ -25,22 +23,24 @@ The following table lists each tool that will be used and their general purpose.
     or highly available and thus **not production-ready**. Their configuration in this 
     lab is meant strictly for local development to try out SDP.  
 
-------------------------------------
-Step 1: Clone the Sample Application
------------------------------------- 
+---------------------------------------------
+Step 1: Register The Insecure Docker Registry
+---------------------------------------------
 
-To begin, clone our `SDP Learning Labs <https://github.com/boozallen/sdp-labs>`_ GitHub repository,
-which includes all of the files you'll need to use throughout this lab. 
+To push and pull images from the local registry to be deployed, you'll need to register it as 
+an insecure registry on your machine.  Modify your docker preferences to add 
+``0.0.0.0:5000`` as an insecure registry. 
 
-.. code-block:: bash
+Follow the instructions under the section labeled "Deploy a plain HTTP registry" found 
+`here <https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry>`_.
 
-   ## cloning via ssh
-   git clone git@github.com:boozallen/sdp-labs.git
+.. note:: 
+    
+    The URL of the Docker registry should **not** be preceded by ``http://`` when 
+    being added to the list of insecure registries.
 
-   ## cloning via https
-   git clone https://github.com/boozallen/sdp-labs.git
-
-In your terminal, navigate to the ``sdp-labs`` directory that you just cloned from GitHub.
+Make sure to apply the changes and restart your docker daemon in order for these 
+changes to take effect. 
 
 ------------------------
 Step 2: Deploy The Tools 
@@ -86,7 +86,7 @@ Let's verify that each tool was successfully deployed.
 
 **SonarQube Server**
 
-    | Navigate to `here <http://localhost:9000>`_. 
+    | Navigate `here <http://localhost:9000>`_. 
     | You should see the following screen:
 
     .. image:: ../images/deploy-devops-tools/sonarqube.png
@@ -97,18 +97,19 @@ Let's verify that each tool was successfully deployed.
     :ref:`troubleshooting <try-it-out troubleshooting>` page for common problems 
     and their fixes.
 
----------------------------------------------
-Step 4: Register The Insecure Docker Registry
----------------------------------------------
+------------------------------------
+Step 4: Clone the Sample Application
+------------------------------------ 
 
-To push and pull images from this local registry, you'll need to register it as 
-an insecure registry on your machine.  Modify your docker preferences to add 
-``localhost:5000`` as an insecure registry. 
+To begin, clone our `SDP Learning Labs <https://github.com/boozallen/sdp-labs>`_ GitHub repository,
+which includes all of the files you'll need to use throughout this lab. 
 
-Follow the instructions under the section labeled "Deploy a plain HTTP registry" found 
-`here <https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry>`_.
+.. code-block:: bash
 
-.. note:: 
-    
-    The URL of the Docker registry should **not** be preceded by ``http://`` when 
-    being added to the list of insecure registries.
+   ## cloning via ssh
+   git clone git@github.com:boozallen/sdp-labs.git
+
+   ## cloning via https
+   git clone https://github.com/boozallen/sdp-labs.git
+
+In your terminal, navigate to the ``sdp-labs`` directory that you just cloned from GitHub.
