@@ -10,10 +10,9 @@ Welcome to the Governance Lab for the Solutions Delivery Platform (SDP)!
 Overview
 --------
 
-The purpose of this lab is to help you set up the Solutions Delivery Platform
-on your own local computer so that you can try it out!
+The purpose of this lab is to demonstrate governance within the Solutions Delivery Platform.
 
-This lab will help you deploy a preconfigured Jenkins instance with SDP configured as well
+This lab will deploy a preconfigured Jenkins instance with SDP configured as well
 as a local SonarQube instance so that you will be able to run a sample pipeline that builds 
 a Spring Boot application while performing static code analysis. 
 
