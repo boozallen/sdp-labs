@@ -49,40 +49,40 @@ Step 2: Deploy The Tools
 We'll be using `docker compose <https://docs.docker.com/compose/>`_ to deploy these tools locally. 
 
 Run the following command in your terminal from the root directory of the ``sdp-labs`` repository
-to deploy the Docker containers using the provided docker-compose.yaml file within the ``try-it-out`` 
-directory. 
+to deploy the Docker containers using the provided docker-compose.yaml file within the ``governance``
+directory.
 
 .. code-block:: bash
 
-   docker-compose -f ./try-it-out/docker-compose.yaml up --build -d --scale sonar-scanner=0
+   docker-compose -f ./governance/docker-compose.yaml up --build -d --scale sonar-scanner=0
 
-.. note:: 
+.. note::
 
-    The ``docker-compose`` command run above may not work on Booz Allen's WiFi depending on its 
-    firewall settings, so you may need to run it on a private network or where firewall rules are more lax. 
+    The ``docker-compose`` command run above may not work on Booz Allen's WiFi depending on its
+    firewall settings, so you may need to run it on a private network or where firewall rules are more lax.
 
-The above command will create and run the following Docker containers: 
+The above command will create and run the following Docker containers:
 Jenkins, a Docker registry, and SonarQube.
 
 -------------------------------
 Step 3: Validate the Deployment
 -------------------------------
 
-Let's verify that each tool was successfully deployed. 
+Let's verify that each tool was successfully deployed.
 
 **Docker Registry**
 
-    | Navigate `here <http://localhost:5000/v2/_catalog>`_. 
+    | Navigate `here <http://localhost:5000/v2/_catalog>`_.
     | You should see the following screen:
 
     .. image:: ../images/deploy-devops-tools/docker_registry.png
 
 **Jenkins**
 
-    | Navigate `here <http://localhost:8080>`_. 
+    | Navigate `here <http://localhost:8080>`_.
     | You should see the following screen:
 
-    .. image:: ../images/deploy-devops-tools/jenkins.png
+    .. image:: ../images/deploy-devops-tools/jenkins_root.png
 
 **SonarQube Server**
 

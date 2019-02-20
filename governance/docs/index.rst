@@ -1,4 +1,4 @@
-.. _Governance Lab:
+.. _Governance:
 
 ==========
 Governance
@@ -64,8 +64,6 @@ Prerequisites
    :titlesonly:
 
    pages/deploy-devops-tools
-   pages/pipeline-configuration-file
-   pages/jenkinsfile
    pages/create-github-credentials
    pages/run-jenkins-build.rst
    pages/troubleshooting.rst
