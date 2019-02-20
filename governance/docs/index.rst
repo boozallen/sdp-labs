@@ -1,10 +1,10 @@
-.. _Try It Out: 
+.. _Governance Lab:
 
 ==========
-Try It Out
+Governance
 ==========
 
-Welcome to the Try It Out Lab for the Solutions Delivery Platform (SDP)!
+Welcome to the Governance Lab for the Solutions Delivery Platform (SDP)!
 
 --------
 Overview
