@@ -39,7 +39,7 @@ Navigate to the configuration page for the Jenkins job that we already created f
 On the top of the page, click the **Branch Sources** tab and click the button labeled **Add** with a blue key next to it on the row
 labeled **Credentials**. 
 
-.. image:: ../images/create-github-credentials/add-credentials-button.png
+.. image:: ../images/create-github-credentials/jenkins_branch_source.png
 
 In the dropdown that follows, select **Jenkins**.
 
@@ -60,7 +60,7 @@ On the top of the page, click the **Jenkins Templating Engine** tab.
 Click the **Credentials** dropdown and select the ``github`` credential within the **Source Location** and the **Library Sources** sections
 as shown in the areas highlighted in red in the following screenshot.
 
-.. image:: ../images/create-github-credentials/credentials_fields.png
+.. image:: ../images/create-github-credentials/jte_jenkins_config.png
 
 When you're done with everything, click on the **Save** button on the bottom of the page.
 
