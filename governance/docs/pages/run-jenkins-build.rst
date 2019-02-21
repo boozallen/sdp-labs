@@ -7,7 +7,7 @@ Run the Jenkins Build
 You've now done everything you needed to run the Jenkins build! Without further ado, let's actually run it and see what it
 can do.
 
-Navigate to the general menu for the Jenkins pipeline of the sample code applications at http://localhost:8080/job/sample-spring-boot-api/job/master/.
+Navigate to the general menu for the Jenkins pipeline of the sample code applications at http://localhost:8080/job/sample-spring-boot-api/job/governance-example/.
 
 On the left-hand side, click **Build Now**. Afterwards, refresh the page and you should see a new build that is building. Click 
 on the number for that new build and on the page that appears, click **Console Output**.
@@ -89,9 +89,9 @@ SonarQube credentials. Click **log in** on the popup when you're done entering t
 
 On your screen, you should now see the following:
 
-.. image:: ../images/run-jenkins-build/sonarqube_projects.png
+.. image:: ../images/run-jenkins-build/sonarqube-governance-example.png
 
-Click the ``sdp-labs-sample-app - masterPassed`` text, which links the report of the various issues that SonarQube found when
+Click the ``sdp-labs-sample-app - governance-example Passed`` text, which links the report of the various issues that SonarQube found when
 doing the code analysis for our sample application code.
 
 
