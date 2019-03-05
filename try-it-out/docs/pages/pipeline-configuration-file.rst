@@ -19,7 +19,7 @@ While this example of a pipeline configuration only uses two software tools (Doc
 there are many other tools already integrated with SDP. For more information about the libraries that have already been 
 integrated with SDP, visit the section about `SDP libraries`_.
 
-.. _SDP libraries: https://boozallen.github.io/sdp-pipeline-framework/pages/libraries/index.html
+.. _SDP libraries: https://boozallen.github.io/sdp-docs/pages/libraries/index.html
 
 The rest of this page will now focus on explaining the different parts of our sample `pipeline_config.groovy`_ file with the content of the file shown below.
 
