@@ -1,0 +1,14 @@
+node{
+  stage("Printing Message"){
+    echo "Dev 2 Template Start"
+    if (message) echo message
+  }
+
+  static_code_analysis()
+  build()
+
+  stage("Printing Message"){
+    echo "Dev 2 Template End"
+  }
+}
+
