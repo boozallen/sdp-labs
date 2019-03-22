@@ -1,5 +1,5 @@
 allow_scm_jenkinsfile = false
-pipeline_template = standard
+pipeline_template = "standard"
 
 libraries{
   sdp{
