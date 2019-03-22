@@ -1,8 +1,9 @@
 node{
   stage("Printing Message"){
-   if (message) echo message
+    echo "Dev 2 Template Start"
+    if (message) echo message
   }
-  build_source()
+
   static_code_analysis()
   build()
 }
