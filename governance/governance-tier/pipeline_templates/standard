@@ -1,6 +1,6 @@
 node{
   stage("Printing Message"){
-    echo "Dev 2 Template Start"
+    echo "Standard Template Start"
     if (message) echo message
   }
 
