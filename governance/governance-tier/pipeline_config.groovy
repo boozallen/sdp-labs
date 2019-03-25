@@ -16,6 +16,7 @@ libraries{
     registry = "0.0.0.0:5000"
     cred = "sdp-docker-registry"
   }
+  gradle
 }
 
 keywords{
