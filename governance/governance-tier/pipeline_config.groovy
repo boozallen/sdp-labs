@@ -19,6 +19,10 @@ libraries{
   gradle
 }
 
+steps{
+  merge = true 
+}
+
 keywords{
   merge = true
 }
