@@ -9,7 +9,10 @@ can do.
 
 Navigate to the general menu for the Jenkins pipeline of the sample code applications at http://localhost:8080/job/sample-spring-boot-api/job/governance-example/.
 
-On the left-hand side, click **Build Now**. Afterwards, refresh the page and you should see a new build that is building. Click 
+If you should see a new build that is building. Click
+on the number for that new build and on the page that appears, click **Console Output**.
+
+Otherwise, on the left-hand side, click **Build Now**. Afterwards, refresh the page and you should see a new build that is building. Click
 on the number for that new build and on the page that appears, click **Console Output**.
 
 You can view the logs to see what is happening when it comes to how Jenkins is interacting with the different tools you've deployed.
