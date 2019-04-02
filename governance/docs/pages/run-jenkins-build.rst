@@ -74,7 +74,7 @@ An example of the command using the above image would be:
 
 .. code-block:: bash
 
-    docker pull localhost:5000/sdp-labs-sample-app:9526f8338de88794e1f491ffdd513c718d605b48
+    docker pull 0.0.0.0:5000/sdp-labs-sample-app:9526f8338de88794e1f491ffdd513c718d605b48
 
 Run the command and verify that you get a response similar to the following:
 
