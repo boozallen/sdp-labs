@@ -42,6 +42,8 @@ Once the build is complete, you should see the following text at the bottom of t
 
     Finished: SUCCESS
 
+You may need to refresh your screen for this message to appear
+
 Now that the build is done, you can now see the results of your build in the next few sections. Keep this page open for the next section.
 
 =======================================
