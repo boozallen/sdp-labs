@@ -14,7 +14,9 @@ The purpose of this lab is to demonstrate governance within the Solutions Delive
 
 This lab will deploy a preconfigured Jenkins instance with SDP configured as well
 as a local SonarQube instance so that you will be able to run a sample pipeline that builds 
-a Spring Boot application while performing static code analysis. 
+a Spring Boot application while performing static code analysis.
+
+This lab builds on the :ref:`try-it-out <try-it-out index>` lab
 
 The `sample application GitHub repository`_ represents a web application that users of SDP
 might want to create a pipeline for.
