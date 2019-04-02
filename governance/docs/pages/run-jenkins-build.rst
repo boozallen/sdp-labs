@@ -53,7 +53,7 @@ Verify that the Docker Image was Pushed
 In this section, you will be pulling the Docker image from the local repository to verify that a Docker image for the sample code application
 was pushed to your local Docker registry.
 
-From the logs of the Console Output, find the text ``Successfully tagged localhost:5000/sdp-labs-sample-app`` on the page. 
+From the logs of the Console Output, find the text ``Successfully tagged 0.0.0.0:5000/sdp-labs-sample-app`` on the page.
 
 Copy the entire line of where you found it including everything that follows the word ``app``, so it would include a colon and a series of seemingly
 random letters and numbers. An example is as follows:
