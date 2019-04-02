@@ -16,12 +16,16 @@ This lab will deploy a preconfigured Jenkins instance with SDP configured as wel
 as a local SonarQube instance so that you will be able to run a sample pipeline that builds 
 a Spring Boot application while performing static code analysis.
 
-This lab builds on the :ref:`try-it-out <try-it-out index>` lab
+This lab builds on the :ref:`try-it-out <Try It Out>`.  Most importantly the standalone
+application's `Jenkinsfile`_ is moved to the governance tier as `its pipeline template`_
 
 The `sample application GitHub repository`_ represents a web application that users of SDP
 might want to create a pipeline for.
 
 .. _sample application GitHub repository: https://github.com/boozallen/sdp-labs-sample-app
+.. _Jenkinsfile: https://github.com/boozallen/sdp-labs-sample-app/blob/master/Jenkinsfile
+.. _its pipeline template: https://github.com/boozallen/sdp-labs/blob/governance-lab/governance/governance-tier/pipeline_templates/standard
+
 
 
 -------------
