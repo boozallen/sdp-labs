@@ -24,9 +24,7 @@ To begin, you will need to create a GitHub Personal Acccess Token by following t
 The token should have all permissions given to it except for the permission to delete the repository.
 
 .. note:: 
-
-    Don’t forget to save this token in some place where you can easily access it in case you need it in the future,
-    otherwise, you may need to create a new one if you lose it.
+    Be sure to save this token some place, since it cannot be recovered. If you loose or forget it, you will need to create a new one.
 
 ==============================
 Adding a Credential to Jenkins
