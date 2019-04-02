@@ -103,7 +103,7 @@ Step 4: Register The Insecure Docker Registry
 
 To push and pull images from this local registry, you'll need to register it as
 an insecure registry on your machine.  Modify your docker preferences to add
-``localhost:5000`` as an insecure registry.
+``0.0.0.0:5000`` as an insecure registry.
 
 Follow the instructions under the section labeled "Deploy a plain HTTP registry" found
 `here <https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry>`_.
