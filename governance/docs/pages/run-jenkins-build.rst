@@ -100,4 +100,4 @@ Click the ``sdp-labs-sample-app - governance-example Passed`` text, which links 
 doing the code analysis for our sample application code.
 
 
-Congratulations on creating your first Jenkins pipeline using the Solutions Delivery Platform!
+Congratulations on creating your first governance pipeline using the Solutions Delivery Platform!
