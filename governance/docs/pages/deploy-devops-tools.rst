@@ -42,8 +42,24 @@ which includes all of the files you'll need to use throughout this lab.
 
 In your terminal, navigate to the ``sdp-labs`` directory that you just cloned from GitHub.
 
+---------------------------------------------
+Step 2: Ensure The Docker Registry is Accessible
+---------------------------------------------
+
+To push and pull images from this local registry, you'll need to register it as
+an insecure registry on your machine.  Modify your docker preferences to add
+``localhost:5000`` as an insecure registry.
+
+Follow the instructions under the section labeled "Deploy a plain HTTP registry" found
+`here <https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry>`_.
+
+.. note::
+
+    The URL of the Docker registry should **not** be preceded by ``http://`` when
+    being added to the list of insecure registries.
+
 ------------------------
-Step 2: Deploy The Tools 
+Step 3: Deploy The Tools
 ------------------------
 
 We'll be using `docker compose <https://docs.docker.com/compose/>`_ to deploy these tools locally. 
@@ -65,7 +81,7 @@ The above command will create and run the following Docker containers:
 Jenkins, a Docker registry, and SonarQube.
 
 -------------------------------
-Step 3: Validate the Deployment
+Step 4: Validate the Deployment
 -------------------------------
 
 Let's verify that each tool was successfully deployed.
@@ -97,18 +113,4 @@ Let's verify that each tool was successfully deployed.
     :ref:`troubleshooting <try-it-out troubleshooting>` page for common problems 
     and their fixes.
 
----------------------------------------------
-Step 4: Register The Insecure Docker Registry
----------------------------------------------
 
-To push and pull images from this local registry, you'll need to register it as 
-an insecure registry on your machine.  Modify your docker preferences to add 
-``localhost:5000`` as an insecure registry. 
-
-Follow the instructions under the section labeled "Deploy a plain HTTP registry" found 
-`here <https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry>`_.
-
-.. note:: 
-    
-    The URL of the Docker registry should **not** be preceded by ``http://`` when 
-    being added to the list of insecure registries.
