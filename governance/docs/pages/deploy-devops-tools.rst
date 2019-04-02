@@ -110,7 +110,7 @@ Let's verify that each tool was successfully deployed.
 .. important:: 
 
     If any of these services are not working as expected you can check out the 
-    :ref:`troubleshooting <try-it-out troubleshooting>` page for common problems 
+    :ref:`troubleshooting <governance troubleshooting>` page for common problems
     and their fixes.
 
 
