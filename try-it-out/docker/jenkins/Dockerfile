@@ -10,9 +10,10 @@ EXPOSE 50000
 
 USER root
 
-# copy in custom common-workflow plugin
+# currently using the plugins/plugins.txt:'templating-engine:1.0' to add JTE
+# remove from plugins/plugins.txt and COPY/ADD below for local development
 # COPY resources/plugins/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
-ADD https://github.com/boozallen/jenkins-templating-engine/releases/download/v0.1-alpha/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
+# ADD https://github.com/boozallen/jenkins-templating-engine/releases/download/v0.1-alpha/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
 
 # install plugins 
 COPY resources/plugins/plugins.txt /usr/share/jenkins/ref/plugins.txt
