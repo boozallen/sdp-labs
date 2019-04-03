@@ -8,6 +8,7 @@ multibranchPipelineJob('sample-spring-boot-api') {
   branchSources {
     git {
       remote('https://github.com/boozallen/sdp-labs-sample-app')
+      includes('*master')
     }
   }
 
