@@ -1,0 +1,12 @@
+node{
+  stage("Printing Message"){
+    echo "Smoke Template Start"
+    if (message) echo message
+  }
+
+  smoke_local()
+
+  stage("Printing Message"){
+    echo "Smoke Template End"
+  }
+}
