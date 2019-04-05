@@ -4,8 +4,6 @@ node{
     if (message) echo message
   }
 
-  smoke_local()
-
   stage("Printing Message"){
     echo "Smoke Template End"
   }
