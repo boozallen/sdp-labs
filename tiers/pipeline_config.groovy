@@ -2,10 +2,17 @@ allow_scm_jenkinsfile = false
 
 libraries{
 
-  sonarqube{// testing the sdp sonarqube
+  sdp{
+    images{
+      registry = "http://0.0.0.0:5000" // registry url
+      cred = "sdp-docker-registry"// jenkins cred id to authenticate
+      docker_args = "--network=governance_sdp"  // docker runtime args
+    }
+  }
+  github_enterprise
+  sonarqube{
     enforce_quality_gate = true
   }
-
 }
 
 steps{
