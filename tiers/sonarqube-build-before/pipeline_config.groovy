@@ -11,6 +11,7 @@ libraries{
   }
   github_enterprise
   sonarqube{
+    require_build_source = true
     enforce_quality_gate = true
   }
 
