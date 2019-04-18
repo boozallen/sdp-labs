@@ -3,7 +3,8 @@ libraryRepoCredId = "github"
 appRepo = "https://github.com/boozallen/sdp-labs-sample-app.git"
 pipelineConfigRepo = "https://github.com/boozallen/sdp-labs"
 pipelineConfigRepoCredId = "github"
-configBaseDir = "governance/governance-tier" // governance tier is in the lab's folder
+pipelineConfigBranch = "*/governance-lab"
+configBaseDir = "tiers/governance" // governance tier is in the lab's folder
 
 multibranchPipelineJob('sample-spring-boot-api') {
   branchSources {
@@ -43,7 +44,7 @@ multibranchPipelineJob('sample-spring-boot-api') {
           }
           branches{
             'hudson.plugins.git.BranchSpec'{
-              name '*/governance-lab'
+              name pipelineConfigBranch
             }
           }
           doGenerateSubmoduleConfigurations false
