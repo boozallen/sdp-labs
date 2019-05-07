@@ -1,7 +1,8 @@
 # Copyright © 2018 Booz Allen Hamilton. All Rights Reserved.
 # This software package is licensed under the Booz Allen Public License. The license can be found in the License file or at http://boozallen.github.io/licenses/bapl
 
-FROM jenkins/jenkins:2.150.1
+FROM jenkins/jenkins:2.164.2
+#FROM jenkins/jenkins:2.150.1
 
 ENV JAVA_OPTS "-Djenkins.install.runSetupWizard=false"
 
@@ -12,8 +13,7 @@ USER root
 
 # currently using the plugins/plugins.txt:'templating-engine:1.0' to add JTE
 # remove from plugins/plugins.txt and COPY/ADD below for local development
-# COPY resources/plugins/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
-# ADD https://github.com/boozallen/jenkins-templating-engine/releases/download/v0.1-alpha/jte.jpi /usr/share/jenkins/ref/plugins/jte.jpi
+# COPY resources/plugins/templating-engine.hpi /usr/share/jenkins/ref/plugins/templating-engine.hpi
 
 # install plugins 
 COPY resources/plugins/plugins.txt /usr/share/jenkins/ref/plugins.txt
