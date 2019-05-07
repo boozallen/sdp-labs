@@ -9,7 +9,7 @@ services:
     privileged: true
     user: root
     container_name: sdp-jenkins
-    image: jenkins/jenkins:2.138.3
+    image: jenkins/jenkins:sdp-2.164.2
     build:
       context: ./docker/jenkins
       dockerfile: Dockerfile
