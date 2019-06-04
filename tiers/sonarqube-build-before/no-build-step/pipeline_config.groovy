@@ -11,6 +11,7 @@ libraries{
   github_enterprise
   sonarqube{
     enforce_quality_gate = true
+    require_build_step = true
   }
   docker{
     registry = "0.0.0.0:5000"
