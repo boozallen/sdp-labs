@@ -1,14 +1,18 @@
 libraryRepo = "https://github.com/boozallen/sdp-libraries.git"
 libraryRepoCredId = "github"
-pipelineConfigRepo = "https://github.com/boozallen/sdp-labs-sample-app.git"
+libraryBranch = "*/governance-lab-gradle"
+libraryBaseDir = ""
+appRepo = "https://github.com/boozallen/sdp-labs-sample-app.git"
+pipelineConfigRepo = "https://github.com/boozallen/sdp-labs"
 pipelineConfigRepoCredId = "github"
-configBaseDir = ""
+pipelineConfigBranch = "*/governance-lab"
+configBaseDir = "tiers/sonarqube-build-before" // governance tier is in the lab's folder
 
 multibranchPipelineJob('sample-spring-boot-api') {
   branchSources {
     git {
       remote('https://github.com/boozallen/sdp-labs-sample-app')
-      includes('*master')
+      includes('*governance-example')
     }
   }
 
@@ -42,7 +46,7 @@ multibranchPipelineJob('sample-spring-boot-api') {
           }
           branches{
             'hudson.plugins.git.BranchSpec'{
-              name '*/master'
+              name pipelineConfigBranch
             }
           }
           doGenerateSubmoduleConfigurations false
@@ -51,6 +55,7 @@ multibranchPipelineJob('sample-spring-boot-api') {
         }
         librarySources{
           'org.boozallen.plugins.jte.config.TemplateLibrarySource'{
+//            baseDir libraryBaseDir
             scm(class: "hudson.plugins.git.GitSCM", plugin: "git@3.9.1"){
               configVersion 2
               userRemoteConfigs{
@@ -60,7 +65,7 @@ multibranchPipelineJob('sample-spring-boot-api') {
               }
               branches{
                 'hudson.plugins.git.BranchSpec'{
-                  name '*/master'
+                  name libraryBranch
                 }
               }
               doGenerateSubmoduleConfigurations false
